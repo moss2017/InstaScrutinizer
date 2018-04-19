@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<title>Javascript &amp; CSS Tab Menu with Sub-navigation</title>
+	<style type="text/css">
+		@import "css/menu.css";
+	</style>
+	<script type="text/javascript" src="js/menu.js"></script>
+</head>
+<body onload="navMenu()">
+<div id="nav">
+	<ul id="tabBar">
+		<li><a href="/index.html">Home</a></li>
+		<li><a href="/about.html" rel="menutrigger" name="about">About</a></li>
+		<li><a href="/work.html" rel="menutrigger" name="work">Our Work</a></li>
+		<li><a href="/contact.html">Contact</a></li>
+	</ul>
+	<div id="subNav">
+		<ul id="aboutNav">
+			<li><a href="/staff.html">Our Staff</a></li>
+			<li><a href="/facilities.html">Facilities</a></li>
+			<li><a href="/certifications.html">Certifications</a></li>
+		</ul>
+		<ul id="workNav">
+			<li><a href="/programs.html">Programs</a></li>
+			<li><a href="/events.html">Events</a></li>
+		</ul>
+	</div>
+</div>
+</body>
+</html>	

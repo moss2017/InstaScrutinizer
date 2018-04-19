@@ -1,0 +1,38 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>search</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div style="margin: 0 auto;width: 80%;">
+    <ul class="nav nav-tabs">
+      <li id="li-tag" class="active">
+        <a (click)="call('tag')">Tag Name</a>
+      </li>
+      <li id="li-loc">
+        <a (click)="call('loc')">Location</a>
+      </li>
+      <li id="li-user">
+        <a (click)="call('user')">User Name</a>
+      </li>
+    </ul>
+
+    <div id="box-Search">
+      <ion-list>
+        <ion-item>
+          <ion-label floating>Username</ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+      </ion-list>
+      <div padding>
+        <button ion-button block (click)="search()">Sign In</button>
+      </div>
+    </div>
+
+  </div>
+</ion-content>

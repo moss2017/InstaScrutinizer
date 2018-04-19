@@ -1,26 +1,17 @@
 <ion-header>
-  <ion-navbar>
-  <ion-title>Welcome Kamlesh</ion-title>
-  <ion-buttons start>
-  <button ion-button icon-only (click)="logoutme()">
-  <ion-icon name='power'></ion-icon>
-  </button>
-  </ion-buttons>
-  </ion-navbar>
+  
+    <ul class="nav nav-tabs">
+      <li role="presentation" ><button (click)="logoutme()">Insta-Scrutinizer</button></li>
+      <li role="presentation" class="active"><button (click)="SearchPage()">Search</button></li>
+      <li role="presentation"><button (click)="ResultsPage()">Results</button></li>
+      <li role="presentation"><button (click)="SettingsPage()">Settings</button></li>
+      <li role="presentation"><button (click)="logoutme()">LogOut</button></li>
+    </ul>
+  
  </ion-header>
   
  <ion-content padding class="buttons-components-page">
-  <h2>Welcome to Ionic!</h2>
-  <p>
-  This starter project comes with simple tabs-based layout for apps
-  that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-  Take a look at the <code>src/pages/</code> directory to add or change tabs,
-  update any existing page or create new pages.
-  </p>
-  
-  <ion-card>
+  <!-- <ion-card>
   <ion-card-content>
   <img src="assets/Google_2015_logo.svg.png" />
   </ion-card-content>
@@ -55,5 +46,5 @@
   </ion-list>
     <div padding>
       <button ion-button (click)="logoutme()">Logout</button>
-    </div>
+    </div> -->
  </ion-content>

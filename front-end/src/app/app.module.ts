@@ -9,6 +9,10 @@ import { HomePage } from '../pages/home/home';
 import { WelcomePage } from '../pages/welcome/welcome';
 import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
+import { SearchPage } from '../pages/search/search';
+import { ResultsPage } from '../pages/results/results';
+import { SettingsPage } from '../pages/settings/settings';
+import { LogOutPage } from '../pages/log-out/log-out';
 
 @NgModule({
   declarations: [
@@ -17,6 +21,10 @@ import { SignupPage } from '../pages/signup/signup';
     WelcomePage,
     LoginPage,
     SignupPage,
+    SearchPage,
+    ResultsPage,
+    SettingsPage,
+    LogOutPage
   ],
   imports: [
     BrowserModule,
@@ -29,6 +37,10 @@ import { SignupPage } from '../pages/signup/signup';
     WelcomePage,
     LoginPage,
     SignupPage,
+    SearchPage,
+    ResultsPage,
+    SettingsPage,
+    LogOutPage
   ],
   providers: [
     StatusBar,
