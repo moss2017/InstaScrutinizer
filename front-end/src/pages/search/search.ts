@@ -20,7 +20,7 @@ export class SearchPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad SearchPage');
   }
-  arrayElemt = ['li-loc', 'li-tag', 'li-user'];
+  arrayElemt = ['li-loc', 'li-tag', 'li-user','ion-item-loc','ion-item-tag','ion-item-user'];
 
 
   call(key) {
@@ -36,6 +36,8 @@ export class SearchPage {
         console.log('Request server by TAG NAME!');
         elem = document.getElementById('li-tag');
         elem.setAttribute('class', 'active');
+        elem = document.getElementById('ion-item-tag');
+        elem.setAttribute('class', 'active');
         //document.getElementById('box-Search').innerHTML = tagHtml;
 
         break;
@@ -44,11 +46,15 @@ export class SearchPage {
         console.log('Request server by USER NAME!');
         elem = document.getElementById('li-user');
         elem.setAttribute('class', 'active');
+        elem = document.getElementById('ion-item-user');
+        elem.setAttribute('class', 'active');
         break;
 
       case "loc":
         console.log('Request server by LOCATION!');
         elem = document.getElementById('li-loc');
+        elem.setAttribute('class', 'active');
+        elem = document.getElementById('ion-item-loc');
         elem.setAttribute('class', 'active');
         break;
 

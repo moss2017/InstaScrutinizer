@@ -23,15 +23,26 @@
     </ul>
 
     <div id="box-Search">
-      <ion-list>
-        <ion-item>
-          <ion-label floating>Username</ion-label>
+
+      <ion-list style="margin-top: 10%;">
+        <ion-item id="ion-item-tag" [hidden]="false" >
+          <ion-label floating>Tag Name search...</ion-label>
           <ion-input type="text"></ion-input>
         </ion-item>
+        <ion-item id="ion-item-user" [hidden]="true" >
+          <ion-label floating>User Name search...</ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+        <ion-item  id="ion-item-loc" [hidden]="true" >
+          <ion-label floating>Location search...</ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+
       </ion-list>
       <div padding>
-        <button ion-button block (click)="search()">Sign In</button>
+        <button ion-button block (click)="search()">Search!</button>
       </div>
+
     </div>
 
   </div>
