@@ -1,16 +1,31 @@
 <ion-header>
-  
-    <ul class="nav nav-tabs">
-      <li role="presentation" ><button (click)="logoutme()">Insta-Scrutinizer</button></li>
-      <li role="presentation" class="active"><button (click)="SearchPage()">Search</button></li>
-      <li role="presentation"><button (click)="ResultsPage()">Results</button></li>
-      <li role="presentation"><button (click)="SettingsPage()">Settings</button></li>
-      <li role="presentation"><button (click)="logoutme()">LogOut</button></li>
-    </ul>
-  
- </ion-header>
-  
- <ion-content padding class="buttons-components-page">
+    <!-- <ion-nav #myMenu [root]="rootPage"></ion-nav>
+    <ion-menu [content]="myMenu">
+        <ion-content> -->
+        <div id='cssmenu'>
+          <ul class="nav nav-tabs">
+            <li class="active">
+              <a (click)="logoutme()">Insta-Scrutinizer</a>
+            </li>
+            <li>
+              <a (click)="SearchPage()">Search</a>
+            </li>
+            <li>
+              <a (click)="ResultsPage()">Results</a>
+            </li>
+            <li>
+              <a (click)="SettingsPage()">Settings</a>
+            </li>
+            <li>
+              <a (click)="logoutme()">LogOut</a>
+            </li>
+          </ul>
+        </div>
+     
+
+</ion-header>
+
+<ion-content padding class="buttons-components-page">
   <!-- <ion-card>
   <ion-card-content>
   <img src="assets/Google_2015_logo.svg.png" />
@@ -47,4 +62,4 @@
     <div padding>
       <button ion-button (click)="logoutme()">Logout</button>
     </div> -->
- </ion-content>
+</ion-content>

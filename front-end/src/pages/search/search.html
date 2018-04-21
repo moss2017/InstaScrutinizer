@@ -23,27 +23,32 @@
     </ul>
 
     <div id="box-Search">
-
-      <ion-list style="margin-top: 10%;">
-        <ion-item id="ion-item-tag" class="active">
-          <ion-label floating>Tag Name search...</ion-label>
-          <ion-input type="text"></ion-input>
-        </ion-item>
-        <ion-item id="ion-item-user" class="hide">
-          <ion-label floating>User Name search...</ion-label>
-          <ion-input type="text"></ion-input>
-        </ion-item>
-        <ion-item  id="ion-item-loc" class="hide">
-          <ion-label floating>Location search...</ion-label>
-          <ion-input type="text"></ion-input>
-        </ion-item>
-
-      </ion-list>
       <div padding>
-        <button ion-button block (click)="search()">Search!</button>
-      </div>
-
+      <p [hidden]=flagTag> Esta opção de pesquisar TAGS server para...</p>
+      <p [hidden]=flagUser> Esta opção de pesquisar UTILIZADORES server para...</p>
+      <p [hidden]=flagLoc> Esta opção de pesquisar LOCALIZAÇÂO server para...</p>
     </div>
+    <ion-list style="margin-top: 1px;">
+      <ion-item [hidden]=flagTag>
+        <ion-label floating>Tag Name search...</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+      <ion-item [hidden]=flagUser>
+        <ion-label floating>User Name search...</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+      <ion-item [hidden]=flagLoc>
+        <ion-label floating>Location search...</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+
+    </ion-list>
+
+    <div padding>
+      <button ion-button block (click)="search()">Search!</button>
+    </div>
+
+  </div>
 
   </div>
 </ion-content>

@@ -1,11 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-/**
- * Generated class for the SearchPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { ResultsPage } from '../results/results';
 
 enum SearchType {
   Tag = 1,
@@ -26,12 +21,19 @@ export class SearchPage {
     //'li-loc', 'li-tag', 'li-user',
     'ion-item-loc', 'ion-item-tag', 'ion-item-user'];
 
+  flagUser:boolean = true;
+  flagTag :boolean = false;
+  flagLoc :boolean = true;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
+
+ 
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SearchPage');
   }
+  arrayElemt = ['li-loc', 'li-tag', 'li-user'];
 
   call(key: SearchType) {
 
@@ -40,17 +42,32 @@ export class SearchPage {
     });
 
     switch (key) {
-      case SearchType.Tag:
-        console.log('Request server by TAG NAME!');
-        this.showField('ion-item-tag');        
+
+      case "tag":
+          console.log('Request server by TAG NAME!');
+          elem = document.getElementById('li-tag');
+          elem.setAttribute('class', 'active');
+          this.flagUser = true;
+          this.flagTag = false;
+          this.flagLoc = true;
         break;
-      case SearchType.User:
-        console.log('Request server by USER NAME!');
-        this.showField('ion-item-user');        
+
+      case "user":
+          console.log('Request server by USER NAME!');
+          elem = document.getElementById('li-user');
+          elem.setAttribute('class', 'active');
+          this.flagUser = false;
+          this.flagTag = true;
+          this.flagLoc = true;
         break;
-      case SearchType.Location:
-        console.log('Request server by LOCATION!');
-        this.showField('ion-item-loc');
+
+      case "loc":
+          console.log('Request server by LOCATION!');
+          elem = document.getElementById('li-loc');
+          elem.setAttribute('class', 'active');
+          this.flagUser = true;
+          this.flagTag = true;
+          this.flagLoc = false;
         break;
       default:
         break;
@@ -71,6 +88,18 @@ export class SearchPage {
 
   search() {
 
+    if (!this.flagUser) {
+      this.navCtrl.push(ResultsPage,{
+        p1:'User request server!'});
+    } 
+    else if (!this.flagTag) {
+      this.navCtrl.push(ResultsPage,{
+        p1:'TAG request server!'});
+    } 
+    else if(!this.flagLoc) {
+      this.navCtrl.push(ResultsPage,{
+        p1:'Location request server!'});
+    } 
   }
 
 }
