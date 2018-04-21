@@ -7,12 +7,24 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
  * Ionic pages and navigation.
  */
 
+enum SearchType {
+  Tag = 1,
+  User = 2,
+  Location = 3,
+  Other = 0
+}
+
+
 @IonicPage()
 @Component({
   selector: 'page-search',
   templateUrl: 'search.html',
 })
+
 export class SearchPage {
+  arrayElemt = [
+    //'li-loc', 'li-tag', 'li-user',
+    'ion-item-loc', 'ion-item-tag', 'ion-item-user'];
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -20,47 +32,36 @@ export class SearchPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad SearchPage');
   }
-  arrayElemt = ['li-loc', 'li-tag', 'li-user','ion-item-loc','ion-item-tag','ion-item-user'];
 
+  call(key: SearchType) {
 
-  call(key) {
-
-    var elem = null;
     this.arrayElemt.forEach(element => {
-      document.getElementById(element).setAttribute('class', '');
+      document.getElementById(element).classList.remove('active');
+      document.getElementById(element).classList.add('hide');
     });
 
     switch (key) {
-
-      case "tag":
+      case SearchType.Tag:
         console.log('Request server by TAG NAME!');
-        elem = document.getElementById('li-tag');
-        elem.setAttribute('class', 'active');
-        elem = document.getElementById('ion-item-tag');
-        elem.setAttribute('class', 'active');
-        //document.getElementById('box-Search').innerHTML = tagHtml;
-
+        this.showField('ion-item-tag');        
         break;
-
-      case "user":
+      case SearchType.User:
         console.log('Request server by USER NAME!');
-        elem = document.getElementById('li-user');
-        elem.setAttribute('class', 'active');
-        elem = document.getElementById('ion-item-user');
-        elem.setAttribute('class', 'active');
+        this.showField('ion-item-user');        
         break;
-
-      case "loc":
+      case SearchType.Location:
         console.log('Request server by LOCATION!');
-        elem = document.getElementById('li-loc');
-        elem.setAttribute('class', 'active');
-        elem = document.getElementById('ion-item-loc');
-        elem.setAttribute('class', 'active');
+        this.showField('ion-item-loc');
         break;
-
       default:
         break;
     }
+  }
+
+  private showField(id: string): void {
+    let el = document.getElementById(id);
+    el.classList.add('active');
+    el.classList.remove('hide');
   }
 
   search() {

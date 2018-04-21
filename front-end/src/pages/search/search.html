@@ -12,28 +12,28 @@
   <div style="margin: 0 auto;width: 80%;">
     <ul class="nav nav-tabs">
       <li id="li-tag" class="active">
-        <a (click)="call('tag')">Tag Name</a>
+        <a (click)="call(1)">Tag Name</a>
       </li>
       <li id="li-loc">
-        <a (click)="call('loc')">Location</a>
+        <a (click)="call(3)">Location</a>
       </li>
       <li id="li-user">
-        <a (click)="call('user')">User Name</a>
+        <a (click)="call(2)">User Name</a>
       </li>
     </ul>
 
     <div id="box-Search">
 
       <ion-list style="margin-top: 10%;">
-        <ion-item id="ion-item-tag" [hidden]="false" >
+        <ion-item id="ion-item-tag" class="active">
           <ion-label floating>Tag Name search...</ion-label>
           <ion-input type="text"></ion-input>
         </ion-item>
-        <ion-item id="ion-item-user" [hidden]="true" >
+        <ion-item id="ion-item-user" class="hide">
           <ion-label floating>User Name search...</ion-label>
           <ion-input type="text"></ion-input>
         </ion-item>
-        <ion-item  id="ion-item-loc" [hidden]="true" >
+        <ion-item  id="ion-item-loc" class="hide">
           <ion-label floating>Location search...</ion-label>
           <ion-input type="text"></ion-input>
         </ion-item>
