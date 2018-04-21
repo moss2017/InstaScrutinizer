@@ -36,8 +36,7 @@ export class SearchPage {
   call(key: SearchType) {
 
     this.arrayElemt.forEach(element => {
-      document.getElementById(element).classList.remove('active');
-      document.getElementById(element).classList.add('hide');
+      this.hideField(element);
     });
 
     switch (key) {
@@ -62,6 +61,12 @@ export class SearchPage {
     let el = document.getElementById(id);
     el.classList.add('active');
     el.classList.remove('hide');
+  }
+
+  private hideField(id: string): void {
+    let el = document.getElementById(id);
+    el.classList.remove('active');
+    el.classList.add('hide');
   }
 
   search() {
