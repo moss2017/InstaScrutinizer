@@ -17,9 +17,6 @@ enum SearchType {
 })
 
 export class SearchPage {
-  arrayElemt = [
-    //'li-loc', 'li-tag', 'li-user',
-    'ion-item-loc', 'ion-item-tag', 'ion-item-user'];
 
   flagUser:boolean = true;
   flagTag :boolean = false;
@@ -28,17 +25,14 @@ export class SearchPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
- 
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SearchPage');
-  }
   arrayElemt = ['li-loc', 'li-tag', 'li-user'];
 
-  call(key: SearchType) {
+  call(key) {
 
+    var elem;
+    
     this.arrayElemt.forEach(element => {
-      this.hideField(element);
+     this.hideField(element);
     });
 
     switch (key) {
@@ -77,13 +71,13 @@ export class SearchPage {
   private showField(id: string): void {
     let el = document.getElementById(id);
     el.classList.add('active');
-    el.classList.remove('hide');
+   
   }
 
   private hideField(id: string): void {
     let el = document.getElementById(id);
     el.classList.remove('active');
-    el.classList.add('hide');
+   
   }
 
   search() {
