@@ -11,10 +11,10 @@ import { SettingsPage } from '../settings/settings';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController, public app: App) {
- 
-     
+  constructor(public navCtrl: NavController,public app:App) {
   }
+ 
+
   logoutme() {
     //this.navCtrl.push(WelcomePage);
     const root = this.app.getRootNav();
@@ -28,6 +28,9 @@ export class HomePage {
   }
   SettingsPage(){
     this.navCtrl.push(SettingsPage);
+  }
+  homePage(){
+    this.navCtrl.push(HomePage);
   }
   
 

@@ -24,7 +24,7 @@ import { LogOutPage } from '../pages/log-out/log-out';
     SearchPage,
     ResultsPage,
     SettingsPage,
-    LogOutPage
+    LogOutPage,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +40,7 @@ import { LogOutPage } from '../pages/log-out/log-out';
     SearchPage,
     ResultsPage,
     SettingsPage,
-    LogOutPage
+    LogOutPage,
   ],
   providers: [
     StatusBar,

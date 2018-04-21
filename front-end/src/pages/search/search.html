@@ -1,9 +1,23 @@
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>search</ion-title>
-  </ion-navbar>
-
+      <div id='cssmenu'>
+          <ul class="nav nav-tabs">
+            <li >
+              <a (click)="homePage()">Insta-Scrutinizer</a>
+            </li>
+            <li class="active">
+              <a (click)="SearchPage()">Search</a>
+            </li>
+            <li>
+              <a (click)="ResultsPage()">Results</a>
+            </li>
+            <li>
+              <a (click)="SettingsPage()">Settings</a>
+            </li>
+            <li>
+              <a (click)="logoutme()">LogOut</a>
+            </li>
+          </ul>
+        </div>
 </ion-header>
 
 
@@ -12,13 +26,13 @@
   <div style="margin: 0 auto;width: 80%;">
     <ul class="nav nav-tabs">
       <li id="li-tag" class="active">
-        <a (click)="call('tag')">Tag Name</a>
+        <a (click)="call(1)">Tag Name</a>
       </li>
       <li id="li-loc">
-        <a (click)="call('loc')">Location</a>
+        <a (click)="call(2)">Location</a>
       </li>
       <li id="li-user">
-        <a (click)="call('user')">User Name</a>
+        <a (click)="call(3)">User Name</a>
       </li>
     </ul>
 
