@@ -1,13 +1,23 @@
 page-search {
-   
+    ion-content{
+        background:  #47c9af;
+    }
    
 }
 #box-Search{
+    
     border-width: 0 1px 1px 1px; 
     border-style: solid;
     border-color: #ddd;
 }
-
+#box-content{
+    justify-content:center;
+    display:line-height;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
 .hide{
     display: none;
 }
