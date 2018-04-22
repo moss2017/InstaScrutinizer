@@ -40,20 +40,20 @@
       <div padding>
       <p [hidden]=flagTag> Esta opção de pesquisar TAGS server para...</p>
       <p [hidden]=flagUser> Esta opção de pesquisar UTILIZADORES server para...</p>
-      <p [hidden]=flagLoc> Esta opção de pesquisar LOCALIZAÇÂO server para...</p>
+      <p [hidden]=flagLoc> Esta opção de pesquisar LOCALIZAÇÃO server para...</p>
     </div>
     <ion-list style="margin-top: 1px;">
       <ion-item [hidden]=flagTag>
         <ion-label floating>Tag Name search...</ion-label>
-        <ion-input type="text"></ion-input>
+        <ion-input type="text" [(ngModel)]="query"></ion-input>
       </ion-item>
       <ion-item [hidden]=flagUser>
         <ion-label floating>User Name search...</ion-label>
-        <ion-input type="text"></ion-input>
+        <ion-input type="text" [(ngModel)]="query"></ion-input>
       </ion-item>
       <ion-item [hidden]=flagLoc>
         <ion-label floating>Location search...</ion-label>
-        <ion-input type="text"></ion-input>
+        <ion-input type="text" [(ngModel)]="query"></ion-input>
       </ion-item>
 
     </ion-list>

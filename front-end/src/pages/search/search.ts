@@ -5,7 +5,7 @@ import { HomePage } from '../home/home';
 import { ResultsPage } from '../results/results';
 import { SettingsPage } from '../settings/settings';
 
-enum SearchType {
+export enum SearchType {
   Tag = 1,
   Location = 2,
   User = 3,
@@ -19,31 +19,30 @@ enum SearchType {
   templateUrl: 'search.html',
 })
 
-export class SearchPage{
+export class SearchPage {
 
   flagUser: boolean = true;
   flagTag: boolean = false;
   flagLoc: boolean = true;
+  query: String;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public app:App ) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public app: App) {
   }
 
   arrayElemt = ['li-loc', 'li-tag', 'li-user'];
 
   call(key: SearchType) {
-    
+    this.query = '';
     this.arrayElemt.forEach(element => {
       this.hideField(element);
     });
 
     this.activedFlags(key);
-  
   }
 
   private showField(id: string): void {
     let el = document.getElementById(id);
     el.classList.add('active');
-
   }
   private hideField(id: string): void {
     let el = document.getElementById(id);
@@ -73,35 +72,41 @@ export class SearchPage{
   }
 
   search() {
+    let params = {
+      query: this.query,
+      queryType: null
+    };
 
     if (!this.flagUser) {
-      this.navCtrl.push(ResultsPage, { p1: 'User request server!' });
+      params.queryType = SearchType.User;
+      this.navCtrl.push(ResultsPage, params);
     }
     else if (!this.flagTag) {
-      this.navCtrl.push(ResultsPage, { p1: 'TAG request server!' });
+      params.queryType = SearchType.Tag;
+      this.navCtrl.push(ResultsPage, params);
     }
     else if (!this.flagLoc) {
-      this.navCtrl.push(ResultsPage, { p1: 'Location request server!' });
+      params.queryType = SearchType.Location;
+      this.navCtrl.push(ResultsPage, params);
     }
   }
-
 
   //MENU
   logoutme() {
     //this.navCtrl.push(WelcomePage);
     const root = this.app.getRootNav();
     root.popToRoot();
-  }  
-  SearchPage(){
+  }
+  SearchPage() {
     this.navCtrl.push(SearchPage);
   }
-  ResultsPage(){
+  ResultsPage() {
     this.navCtrl.push(ResultsPage);
   }
-  SettingsPage(){
+  SettingsPage() {
     this.navCtrl.push(SettingsPage);
   }
-  homePage(){
+  homePage() {
     this.navCtrl.push(HomePage);
   }
 }
