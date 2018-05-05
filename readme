@@ -1,0 +1,23 @@
+init{
+
+1.  #git clone https://github.com/moss2017/InstaScrutinizer.git
+
+}
+
+Back-End {
+
+2.  #cd backend/
+3.  #npm install
+4.  #node server.js
+
+}
+
+Front-End{
+
+2.  #cd frontend/
+3.  #npm install -g ionic
+4.  #ionic serve
+5.  browser: localhost:port
+
+}
+
