@@ -14,6 +14,8 @@ import { ResultsPage } from '../pages/results/results';
 import { SettingsPage } from '../pages/settings/settings';
 import { LogOutPage } from '../pages/log-out/log-out';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -24,10 +26,11 @@ import { LogOutPage } from '../pages/log-out/log-out';
     SearchPage,
     ResultsPage,
     SettingsPage,
-    LogOutPage,
+    LogOutPage
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -40,7 +43,7 @@ import { LogOutPage } from '../pages/log-out/log-out';
     SearchPage,
     ResultsPage,
     SettingsPage,
-    LogOutPage,
+    LogOutPage
   ],
   providers: [
     StatusBar,

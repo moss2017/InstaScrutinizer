@@ -1,17 +1,15 @@
-var bodyParser = require('body-parser')
-var express = require('express')
-var cors = require('cors')
-var app = express()
-var config = require('../configs')
-app.use(cors());
+var bodyParser = require('body-parser');
+var express = require('express');
+var cors = require('cors');
+var app = express();
+var config = require('../configs');
 
 const port = config.backend.port;
 
-//body parser
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
-app.use(bodyParser.json())// support json encoded bodies
+app.use(cors());
+app.use(bodyParser.json()); // support json encoded bodies
+app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
+
 //app.use(require('./teste')(express))
 app.use(require('./api/insta/login')(express))
 
