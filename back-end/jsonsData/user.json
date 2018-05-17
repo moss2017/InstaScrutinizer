@@ -1,0 +1,25 @@
+{
+    "data" : [
+        {
+            "id" : "0",
+            "username" : "admin",
+            "fullname" : "administrator",
+            "email" : "istascrutinizer@email.com",
+            "password" : "admin"
+        },
+        {
+            "id" : "1",
+            "username" : "user1",
+            "fullname" : "user first",
+            "email" : "user_first@email.com",
+            "password" : "first"
+        },
+        {
+            "id" : "2",
+            "username" : "user2",
+            "fullname" : "user second",
+            "email" : "user_second@email.com",
+            "password" : "second"
+        }
+    ]
+}
