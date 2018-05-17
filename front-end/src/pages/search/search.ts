@@ -24,7 +24,9 @@ export class SearchPage {
   flagUser: boolean = true;
   flagTag: boolean = false;
   flagLoc: boolean = true;
-  query: String;
+  public searchTag: string;
+  public searchUser: string;
+  public SearchLocation: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public app: App) {
   }
@@ -79,14 +81,17 @@ export class SearchPage {
 
     if (!this.flagUser) {
       params.queryType = SearchType.User;
+      alert(this.searchTag);
       this.navCtrl.push(ResultsPage, params);
     }
     else if (!this.flagTag) {
       params.queryType = SearchType.Tag;
-      this.navCtrl.push(ResultsPage, params);
+      console.log(this.searchUser);
+     // this.navCtrl.push(ResultsPage, params);
     }
     else if (!this.flagLoc) {
       params.queryType = SearchType.Location;
+      console.log(this.SearchLocation);
       this.navCtrl.push(ResultsPage, params);
     }
   }

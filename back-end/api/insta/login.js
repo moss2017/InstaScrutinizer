@@ -10,10 +10,12 @@ module.exports = (app) => {
     var date = new Date();
     var current_hour = date.getHours();
     console.log('['+date+']'+' [POST] Server Login API!');
-  
-    var user = req.body.user; //param('user');
-    var userpass = req.body.password; //param('password');
-
+    
+    var jsonObj = JSON.stringify(req.body);
+    console.log('BODY:  '+jsonObj);
+    var user = jsonObj.jsonObject.name; //param('user');
+    var userpass = jsonObj.jsonObject.pwd; //param('password');
+  console.log(user+' = '+userpass);
     res.end(user+' = '+userpass);
     res.end('['+date+']'+' [POST] Server Login API!');
   })

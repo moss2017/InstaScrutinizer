@@ -23,16 +23,19 @@ export class LoginPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
   }
+  
   signin(){
-    let postData = new FormData();
-    postData.append('user' , this.inUser);
-    postData.append('password' , this.inPass);
-    
-    this.http.post('http://127.0.0.1:3000/login',{postData}) 
-    .subscribe(data => {
-      console.log('my data: ', data);
-      this.navCtrl.push(HomePage);
+    console.log(this.inUser);
+    alert(this.inPass);
+    let jsonString = '{"name":"'+this.inUser+'","pwd":"'+this.inPass+'"}'
+    let jsonObject = JSON.parse(jsonString);
+
+    this.http.post('http://127.0.0.1:3000/login',{jsonObject}) 
+    .subscribe(jsonObject => {
+      console.log('my data: ', jsonObject);
+      
     })
+    this.navCtrl.push(HomePage);
    // this.httpClient.get('http://localhost:3000/api/insta/login');
     // alert(this.inUser);
     // alert(this.inPass);
