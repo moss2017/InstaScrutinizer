@@ -8,10 +8,13 @@ module.exports = (app) => {
     apiRoutes.post('/searchUser',(req,res) =>{  
         var date = new Date();
 
-        var obj = JSON.parse(fs.readFileSync('./jsonsData/tag&moss.json', 'utf8'));
-
-       
+       var obj = JSON.parse(fs.readFileSync('./jsonsData/tag&moss.json', 'utf8'));
+    //    res.on('data',(obj)=>{
+    //        data += obj;
+    //    });
+       res.json(obj);
         console.log(obj);
+        //res.end(obj);
         res.end('['+date+']'+'[POST] InstaScrutinizer api searchUser... [ok]')
     })
 
