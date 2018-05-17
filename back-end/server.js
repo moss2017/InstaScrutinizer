@@ -16,7 +16,7 @@ app.use(require('./api/core/getDataByUser')(express))
 
 app.listen(port)
 
-console.log('Starting InstaScrutinizer server' )
+console.log('Starting InstaScrutinizer server!!' )
 console.log('INFO : Server started and is listening on http://localhost:'+port+'/' )
 
 
