@@ -31,6 +31,7 @@ export class LoginPage {
     this.http.post('http://127.0.0.1:3000/login',{postData}) 
     .subscribe(data => {
       console.log('my data: ', data);
+      this.navCtrl.push(HomePage);
     })
    // this.httpClient.get('http://localhost:3000/api/insta/login');
     // alert(this.inUser);
