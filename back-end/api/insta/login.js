@@ -10,7 +10,7 @@ module.exports = (app) => {
     var date = new Date();
     var current_hour = date.getHours();
     console.log('['+date+']'+' [POST] Server Login API!');
-    
+   
     var Obj = JSON.stringify(req.body);
     var jsonObj = JSON.parse(Obj);
     var user = jsonObj.jsonObject.name; //param('user');
@@ -19,8 +19,9 @@ module.exports = (app) => {
 
     /*VERIFY IF USER AND PASS EXIST*/
     /*GET FILE USER.JSON */
-    res.end(user+' = '+userpass);
-    res.end('['+date+']'+' [POST] Server Login API!');
+    
+   res.end('{"isOk":"false","idUser":"1"}');
+   
   })
 
   apiRoutes.get('/login',(req,res) =>{

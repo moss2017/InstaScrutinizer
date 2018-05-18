@@ -4,7 +4,7 @@ import { HomePage } from '../home/home';
 //import { configs } from '../../../../configs';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
+import { LoginPage } from '../login/login';
 
 @IonicPage()
 @Component({
@@ -24,18 +24,32 @@ export class LoginPage {
     console.log('ionViewDidLoad LoginPage');
   }
   
+  
   signin(){
-    console.log(this.inUser);
-    alert(this.inPass);
+    
     let jsonString = '{"name":"'+this.inUser+'","pwd":"'+this.inPass+'"}'
     let jsonObject = JSON.parse(jsonString);
 
     this.http.post('http://127.0.0.1:3000/login',{jsonObject}) 
-    .subscribe(jsonObject => {
-      console.log('my data: ', jsonObject);
-      
-    })
-    this.navCtrl.push(HomePage);
+    .subscribe(
+      res => {
+        var OBJ = JSON.stringify(res);
+        let jsonObj:ObjAutentication = JSON.parse(OBJ);
+        console.log(jsonObj.isOk);
+        let flag : boolean = jsonObj.isOk;
+        if (flag) {
+          this.navCtrl.push(HomePage);
+        }else{
+          this.navCtrl.push(LoginPage);
+        }
+      //console.log('my data: ', res);
+      },
+      err => {
+        console.log("Error occured");
+        this.navCtrl.push(LoginPage);
+      }
+    );
+    
    // this.httpClient.get('http://localhost:3000/api/insta/login');
     // alert(this.inUser);
     // alert(this.inPass);
@@ -43,4 +57,8 @@ export class LoginPage {
   }
 
  
+}
+interface ObjAutentication {
+  isOk: boolean;
+  idUser: number;
 }
