@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
-
+import { HttpClient } from '@angular/common/http';
 import { HomePage } from '../home/home';
 import { ResultsPage } from '../results/results';
 import { SettingsPage } from '../settings/settings';
@@ -28,7 +28,7 @@ export class SearchPage {
   public searchUser: string;
   public SearchLocation: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public app: App) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public app: App,public http: HttpClient) {
   }
 
   arrayElemt = ['li-loc', 'li-tag', 'li-user'];
@@ -86,13 +86,22 @@ export class SearchPage {
 
     if (!this.flagUser) {
       params.queryType = SearchType.User;
-      alert(this.searchTag);
+      alert(this.searchUser);
+      this.http.post('http://127.0.0.1:3000/login',{jsonObject}) 
+      .subscribe(
+        res => {
+          //console.log('my data: ', res);
+      },
+      err => {
+        console.log("Error occured");       
+      }
+    );
       this.navCtrl.push(ResultsPage, params);
     }
     else if (!this.flagTag) {
       params.queryType = SearchType.Tag;
-      console.log(this.searchUser);
-     // this.navCtrl.push(ResultsPage, params);
+      console.log(this.searchTag);
+      this.navCtrl.push(ResultsPage, params);
     }
     else if (!this.flagLoc) {
       params.queryType = SearchType.Location;
