@@ -11,11 +11,14 @@ module.exports = (app) => {
     var current_hour = date.getHours();
     console.log('['+date+']'+' [POST] Server Login API!');
     
-    var jsonObj = JSON.stringify(req.body);
-    console.log('BODY:  '+jsonObj);
+    var Obj = JSON.stringify(req.body);
+    var jsonObj = JSON.parse(Obj);
     var user = jsonObj.jsonObject.name; //param('user');
-    var userpass = jsonObj.jsonObject.pwd; //param('password');
-  console.log(user+' = '+userpass);
+    var userpass = jsonObj.jsonObject.pwd; //param('password');    
+    console.log(user+' = '+userpass);
+
+    /*VERIFY IF USER AND PASS EXIST*/
+    /*GET FILE USER.JSON */
     res.end(user+' = '+userpass);
     res.end('['+date+']'+' [POST] Server Login API!');
   })

@@ -34,7 +34,9 @@ export class SearchPage {
   arrayElemt = ['li-loc', 'li-tag', 'li-user'];
 
   call(key: SearchType) {
-    this.query = '';
+    this.searchTag = '';
+    this.searchUser = '';
+    this.SearchLocation = '';
     this.arrayElemt.forEach(element => {
       this.hideField(element);
     });
@@ -75,7 +77,10 @@ export class SearchPage {
 
   search() {
     let params = {
-      query: this.query,
+      searchTag: this.searchTag,
+      searchUser: this.searchUser,
+      SearchLocation: this.SearchLocation,
+      //query: this.query,
       queryType: null
     };
 
