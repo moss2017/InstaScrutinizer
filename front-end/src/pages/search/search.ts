@@ -87,16 +87,20 @@ export class SearchPage {
     if (!this.flagUser) {
       params.queryType = SearchType.User;
       alert(this.searchUser);
-      this.http.post('http://127.0.0.1:3000/login',{jsonObject}) 
+      let data = '{"userKey":"'+this.searchUser+'"}';
+      this.http.post('http://127.0.0.1:3000/searchUser',{data}) 
       .subscribe(
         res => {
-          //console.log('my data: ', res);
+          console.log('my data: ', res);
+          this.navCtrl.push(SearchPage);
       },
       err => {
-        console.log("Error occured");       
+        console.log("Error occured");    
+        this.navCtrl.push(SearchPage);
+        //this.navCtrl.push(ResultsPage, params); 
       }
     );
-      this.navCtrl.push(ResultsPage, params);
+     
     }
     else if (!this.flagTag) {
       params.queryType = SearchType.Tag;

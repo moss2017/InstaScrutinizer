@@ -4,7 +4,7 @@ import { HomePage } from '../home/home';
 //import { configs } from '../../../../configs';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { LoginPage } from '../login/login';
+
 
 @IonicPage()
 @Component({

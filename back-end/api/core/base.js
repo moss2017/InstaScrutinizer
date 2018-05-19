@@ -11,6 +11,18 @@ module.exports = {
                                             array.push(file);
                                         })
                                     return array;
+                                },
+    
+    getFileByName : function(key){
+                                    const testFolder = './jsonsData/';
+                                    const fs = require('fs'); fs.readdirSync(testFolder).forEach(file => {
+                                       if (key===file.getFileByName) {
+                                           
+                                       }
+                                        console.log(file);
+                                        array.push(file);
+                                    })
+                                return array;
                                 }
 
 }  
