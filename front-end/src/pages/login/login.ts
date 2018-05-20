@@ -37,10 +37,11 @@ export class LoginPage {
         let jsonObj:ObjAutentication = JSON.parse(OBJ);
         console.log(jsonObj.isOk);
         let flag : boolean = jsonObj.isOk;
-        if (flag) {
-          this.navCtrl.push(HomePage);
-        }else{
+        console.log(flag);
+        if (flag === false) {
           this.navCtrl.push(LoginPage);
+        }else{
+          this.navCtrl.push(HomePage);
         }
       //console.log('my data: ', res);
       },

@@ -2,7 +2,7 @@
 module.exports = (app) => {
   var apiRoutes = app.Router();
   var config = require('../../../configs');
- 
+  var tools = require('../core/base'); 
 
   console.log('InstaScrutinizer api login... [ok]' )
 
@@ -17,10 +17,14 @@ module.exports = (app) => {
     var userpass = jsonObj.jsonObject.pwd; //param('password');    
     console.log(user+' = '+userpass);
 
+    var userDataJsonUser = tools.getFileByUser(user, userpass);
+   
     /*VERIFY IF USER AND PASS EXIST*/
+   
     /*GET FILE USER.JSON */
-    
-   res.end('{"isOk":"false","idUser":"1"}');
+
+    console.log(userDataJsonUser);
+   res.end(userDataJsonUser);
    
   })
 

@@ -28,7 +28,7 @@ module.exports = (app) => {
         res.end('{"data":"cenas"}');
     })
 
-    apiRoutes.get('/searchUser',(req,res) =>{
+    apiRoutes.get('/searchUser',(req,res) => {
         var date = new Date();
 
 
