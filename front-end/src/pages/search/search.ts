@@ -5,6 +5,7 @@ import { HomePage } from '../home/home';
 import { ResultsPage } from '../results/results';
 import { SettingsPage } from '../settings/settings';
 
+
 export enum SearchType {
   Tag = 1,
   Location = 2,
@@ -24,9 +25,7 @@ export class SearchPage {
   flagUser: boolean = true;
   flagTag: boolean = false;
   flagLoc: boolean = true;
-  public searchTag: string;
-  public searchUser: string;
-  public SearchLocation: string;
+  public query: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public app: App,public http: HttpClient) {
   }
@@ -34,9 +33,6 @@ export class SearchPage {
   arrayElemt = ['li-loc', 'li-tag', 'li-user'];
 
   call(key: SearchType) {
-    this.searchTag = '';
-    this.searchUser = '';
-    this.SearchLocation = '';
     this.arrayElemt.forEach(element => {
       this.hideField(element);
     });
@@ -76,40 +72,22 @@ export class SearchPage {
   }
 
   search() {
+
     let params = {
-      searchTag: this.searchTag,
-      searchUser: this.searchUser,
-      SearchLocation: this.SearchLocation,
-      //query: this.query,
+      query: this.query,
       queryType: null
     };
 
     if (!this.flagUser) {
       params.queryType = SearchType.User;
-      alert(this.searchUser);
-      let data = '{"userKey":"'+this.searchUser+'"}';
-      this.http.post('http://127.0.0.1:3000/searchUser',{data}) 
-      .subscribe(
-        res => {
-          console.log('my data: ', res);
-          this.navCtrl.push(SearchPage);
-      },
-      err => {
-        console.log("Error occured");    
-        this.navCtrl.push(SearchPage);
-        //this.navCtrl.push(ResultsPage, params); 
-      }
-    );
-     
+      this.navCtrl.push(ResultsPage, params);
     }
     else if (!this.flagTag) {
       params.queryType = SearchType.Tag;
-      console.log(this.searchTag);
       this.navCtrl.push(ResultsPage, params);
     }
     else if (!this.flagLoc) {
       params.queryType = SearchType.Location;
-      console.log(this.SearchLocation);
       this.navCtrl.push(ResultsPage, params);
     }
   }

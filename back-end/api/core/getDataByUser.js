@@ -30,9 +30,9 @@ module.exports = (app) => {
 
     apiRoutes.get('/searchUser',(req,res) => {
         var date = new Date();
+        console.log(req);
+        res.end('{"data":"cenas"}');
 
-
-        res.end('['+date+']'+' [GET] InstaScrutinizer api searchUser... [ok]')
     })
 
     return apiRoutes;
