@@ -1,0 +1,40 @@
+{
+    "users": [
+        {
+            "name": "user1",
+            "fullname": "user first",
+            "id": "1",
+            "location": "Lisbon"
+        },
+        {
+            "name": "user1",
+            "fullname": "user first",
+            "id": "2",
+            "location": "Tomar"
+        },
+        {
+            "name": "user1",
+            "fullname": "user first",
+            "id": "3",
+            "location": "Abrantes"
+        },
+        {
+            "name": "user1",
+            "fullname": "user first",
+            "id": "4",
+            "location": "Italy"
+        },
+        {
+            "name": "user1",
+            "fullname": "user first",
+            "id": "5",
+            "location": "Spain"
+        },
+        {
+            "name": "user1",
+            "fullname": "user first",
+            "id": "6",
+            "location": "London"
+        }
+    ]
+}

@@ -1,7 +1,11 @@
 module.exports = (app) => {
     var apiRoutes = app.Router();
     var fs = require('fs');
+    var path = require('path');
     var tools = require('./base');
+    let files = {
+        userInfo: path.join(__dirname, 'data', 'userInfo.json')
+    }
    
   
     console.log('InstaScrutinizer api searchUser... [ok]' )
@@ -28,11 +32,14 @@ module.exports = (app) => {
         res.end('{"data":"cenas"}');
     })
 
-    apiRoutes.get('/searchUser',(req,res) => {
-        var date = new Date();
-        console.log(req);
-        res.end('{"data":"cenas"}');
+    apiRoutes.get('/searchUser', (req, res) => {
+        let toExecute = function (err, data) {
+            if (err) console.log(err.path);//throw err;
+            // res.end(`{${JSON.stringify(data.users)}}`);
+            res.end(data);
+        };
 
+        fs.readFile(files.userInfo, 'utf8', toExecute);
     })
 
     return apiRoutes;

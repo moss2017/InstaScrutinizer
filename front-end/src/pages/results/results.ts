@@ -18,7 +18,35 @@ import { HttpClient,HttpParams } from '@angular/common/http';
   templateUrl: 'results.html',
 })
 export class ResultsPage {
+  public p1;
+  public resultList;
+  public query: String;
+  public queryType: SearchType;
+  private loader; 
 
+
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    public app: App,
+    public loadingCtrl: LoadingController,
+    public http: HttpClient) {
+      this.query = navParams.get("query");
+      this.queryType = navParams.get("queryType");
+      this.executeSearch();
+      this.presentLoading();
+  }
+
+  
+  loadResultListFromResponse(list: any): any {
+    console.log(list);
+    let count = 1;
+    this.resultList = [];
+    list.users.forEach(el => {
+      this.resultList.push({ name: el.name, position: count }, );
+      count++;
+    });
+    this.loader.dismissAll();
+  }
   getApiURL = function(qType : SearchType) : string {
     let APIurl:string = "http://127.0.0.1:3000/";
     switch (qType) {
@@ -40,46 +68,13 @@ export class ResultsPage {
   executeSearch(): any {
 
     let apiUrl: string = this.getApiURL(this.queryType);
+    let resp : any = null;
 
     const params = new HttpParams()
     .set('searchText', `${this.query}`)
-    this.http.get(apiUrl, {params}).subscribe(res => console.log(res));
+    .set('searchText', `${this.queryType}`)
+    this.http.get(apiUrl, {params}).subscribe(res => this.loadResultListFromResponse(res));
 
-
-
-    // let data = '{"userKey":"'+this.searchUser+'"}';
-    // this.http.post('http://127.0.0.1:3000/searchUser',{data}) 
-    // .subscribe(
-    //   res => {
-    //     console.log('my data: ', res);
-    //     this.navCtrl.push(SearchPage);
-    // },
-    // err => {
-    //   console.log("Error occured");    
-    //   this.navCtrl.push(SearchPage);
-    //   //this.navCtrl.push(ResultsPage, params); 
-    // }
-  // );
-  }
-  public p1;
-  public resultList;
-  public query: String;
-  public queryType: SearchType;
-
-
-  constructor(public navCtrl: NavController, 
-    public navParams: NavParams, 
-    public app: App, 
-    public loadingCtrl: LoadingController,
-    public http: HttpClient) {
-
-    this.query = navParams.get("query");
-    this.queryType = navParams.get("queryType");
-    // console.log(this.query,this.queryType);
-
-    this.executeSearch();
-
-    this.presentLoading();
   }
 
   ionViewDidLoad() {
@@ -88,7 +83,6 @@ export class ResultsPage {
 
   //MENU
   logoutme() {
-    //this.navCtrl.push(WelcomePage);
     const root = this.app.getRootNav();
     root.popToRoot();
   }
@@ -106,14 +100,14 @@ export class ResultsPage {
   }
 
   presentLoading() {
-    let loader = this.loadingCtrl.create({
+    this.loader = this.loadingCtrl.create({
       content: "Please wait...",
       duration: 3000,
     });
-    loader.present();
+    this.loader.present();
 
-    // TODO: aftes receive result of search remove loader
-    setTimeout(this.loadResultList(),3500);
+    // // TODO: aftes receive result of search remove loader
+    // setTimeout(this.loadResultList(),3500);
   }
   loadResultList() {
     this.resultList = [
