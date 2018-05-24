@@ -40,7 +40,8 @@ module.exports = (app) => {
             if (!req.query.searchText) {
                 a = JSON.parse(data).users;
             } else {
-                a = JSON.parse(data).users.filter(x => x.name.indexOf(req.query.searchText) !== -1);
+                a = JSON.parse(data).users.filter(
+                    x => x.name.toLowerCase().indexOf(req.query.searchText.toLowerCase()) !== -1);
             }
 
             res.end(JSON.stringify({users:a}));
