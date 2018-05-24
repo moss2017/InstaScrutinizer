@@ -13,6 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 //app.use(require('./teste')(express))
 app.use(require('./api/insta/login')(express))
 app.use(require('./api/core/getDataByUser')(express))
+app.use(require('./api/core/getDataByLocation')(express))
 
 app.listen(port)
 

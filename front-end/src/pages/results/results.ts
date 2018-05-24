@@ -41,17 +41,32 @@ export class ResultsPage {
     console.log(list);
     let count = 1;
     this.resultList = [];
-    list.users.forEach(el => {
-      this.resultList.push({ name: el.name, position: count }, );
-      count++;
-    });
+
+    switch (this.queryType) {
+      case SearchType.User:
+        list.users.forEach(el => {
+          this.resultList.push({ name: el.name, position: count }, );
+          count++;
+        });
+        break;
+      case SearchType.Location:
+        list.locations.forEach(el => {
+          this.resultList.push({ name: el.title, position: count }, );
+          count++;
+        });
+        break;
+      default:
+        break;
+    }
+
+
     this.loader.dismissAll();
   }
   getApiURL = function(qType : SearchType) : string {
     let APIurl:string = "http://127.0.0.1:3000/";
     switch (qType) {
       case SearchType.Location:
-      APIurl += "l";
+      APIurl += "searchLocation";
         break;
       case SearchType.User:
       APIurl += "searchUser";
