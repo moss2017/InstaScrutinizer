@@ -68,11 +68,10 @@ export class ResultsPage {
   executeSearch(): any {
 
     let apiUrl: string = this.getApiURL(this.queryType);
-    let resp : any = null;
-
+    
     const params = new HttpParams()
     .set('searchText', `${this.query}`)
-    .set('searchText', `${this.queryType}`)
+    .set('searchType', `${this.queryType}`)
     this.http.get(apiUrl, {params}).subscribe(res => this.loadResultListFromResponse(res));
 
   }

@@ -34,9 +34,16 @@ module.exports = (app) => {
 
     apiRoutes.get('/searchUser', (req, res) => {
         let toExecute = function (err, data) {
-            if (err) console.log(err.path);//throw err;
-            // res.end(`{${JSON.stringify(data.users)}}`);
-            res.end(data);
+            if (err) console.log(err.path);
+
+            let a = null;
+            if (!req.query.searchText) {
+                a = JSON.parse(data).users;
+            } else {
+                a = JSON.parse(data).users.filter(x => x.name.indexOf(req.query.searchText) !== -1);
+            }
+
+            res.end(JSON.stringify({users:a}));
         };
 
         fs.readFile(files.userInfo, 'utf8', toExecute);
