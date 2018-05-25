@@ -38,7 +38,7 @@ export class LoginPage {
         console.log(jsonObj.isOk);
         const flag : boolean = jsonObj.isOk;
         console.log(flag);
-        if (!flag) {
+        if (flag) {
           this.navCtrl.push(HomePage);
         }else{
           this.navCtrl.push(LoginPage);
