@@ -34,11 +34,11 @@ export class LoginPage {
     .subscribe(
       res => {
         var OBJ = JSON.stringify(res);
-        let jsonObj:ObjAutentication = JSON.parse(OBJ);
-        console.log(jsonObj.isOk);
-        const flag : boolean = jsonObj.isOk;
+        let jsonObj = JSON.parse(OBJ);
+        
+        var flag : String = jsonObj.isOk;
         console.log(flag);
-        if (!flag) {
+        if (flag === 'true') {
           this.navCtrl.push(HomePage);
         }else{
           this.navCtrl.push(LoginPage);
@@ -50,16 +50,9 @@ export class LoginPage {
         this.navCtrl.push(LoginPage);
       }
     );
-    
-   // this.httpClient.get('http://localhost:3000/api/insta/login');
-    // alert(this.inUser);
-    // alert(this.inPass);
-    // this.navCtrl.push(HomePage);
+ 
   }
 
  
 }
-interface ObjAutentication {
-  isOk: boolean;
-  idUser: number;
-}
+
