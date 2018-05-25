@@ -23,4 +23,35 @@
 
 <ion-content padding>
 
+        <div id="divLog">
+          <ion-list>
+      
+            <ion-item>
+              <ion-label floating>New Username</ion-label>
+              <ion-input type="text"></ion-input>
+            </ion-item>
+      
+            <ion-item>
+              <ion-label floating>New Email</ion-label>
+              <ion-input type="email"></ion-input>
+            </ion-item>
+      
+            <ion-item>
+              <ion-label floating>New Password</ion-label>
+              <ion-input type="password"></ion-input>
+            </ion-item>
+      
+            <ion-item>
+              <ion-label floating>Re-Password</ion-label>
+              <ion-input type="password"></ion-input>
+            </ion-item>
+      
+          </ion-list>
+      
+          <div padding>
+            <button ion-button block (click)="signup()">Update Settings</button>
+          </div>
+        </div>
+
+
 </ion-content>
