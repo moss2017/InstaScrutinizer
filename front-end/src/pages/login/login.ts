@@ -36,12 +36,12 @@ export class LoginPage {
         var OBJ = JSON.stringify(res);
         let jsonObj:ObjAutentication = JSON.parse(OBJ);
         console.log(jsonObj.isOk);
-        let flag : boolean = jsonObj.isOk;
+        const flag : boolean = jsonObj.isOk;
         console.log(flag);
-        if (flag === false) {
-          this.navCtrl.push(LoginPage);
-        }else{
+        if (!flag) {
           this.navCtrl.push(HomePage);
+        }else{
+          this.navCtrl.push(LoginPage);
         }
       //console.log('my data: ', res);
       },
