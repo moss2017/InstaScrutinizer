@@ -15,7 +15,7 @@ module.exports = (app) => {
     var jsonObj = JSON.parse(Obj);
     var user = jsonObj.jsonObject.name; //param('user');
     var userpass = jsonObj.jsonObject.pwd; //param('password');    
-   // console.log(user+' = '+userpass);
+   console.log(user+' = '+userpass);
 
     var userDataJsonUser = tools.getFileByUser(user, userpass);
    

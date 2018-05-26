@@ -37,8 +37,8 @@ module.exports = {
         var Obj = JSON.stringify(uFile);
         var jsonObj = JSON.parse(Obj);
 
-        console.log(jsonObj);
-        console.log(jsonObj.data);
+      
+      //  console.log(jsonObj.data);
 
         var flag = false;
         var p = null;
