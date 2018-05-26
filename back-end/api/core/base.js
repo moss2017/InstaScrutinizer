@@ -30,8 +30,8 @@ module.exports = {
     },
 
     getFileByUser : function(uKey, pKey){
-        const testFolder = '../../jsonsData/user.json';
-        var uFile = require('../../jsonsData/user');
+        // const testFolder = '../../jsonsData/user.json';
+        var uFile = require('../../jsonsData/user.json');
         const fs = require('fs');     
 
         var Obj = JSON.stringify(uFile);
@@ -58,6 +58,6 @@ module.exports = {
             }
         }
 
-        return '{"isOk":"'+flag+'","idUser":"'+p+'"}';
+        return '{"isOk":'+flag+',"idUser":"'+p+'"}';
     },
 }  

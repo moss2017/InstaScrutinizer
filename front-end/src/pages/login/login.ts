@@ -38,7 +38,11 @@ export class LoginPage {
         
         var flag : String = jsonObj.isOk;
         console.log(flag);
+<<<<<<< HEAD
         if (flag === 'true') {
+=======
+        if (flag) {
+>>>>>>> master
           this.navCtrl.push(HomePage);
         }else{
           this.navCtrl.push(LoginPage);
